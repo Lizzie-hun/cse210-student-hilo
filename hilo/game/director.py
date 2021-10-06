@@ -1,30 +1,5 @@
 from game.dealer import Dealer
 
-<<<<<<< HEAD
-class Director:
-
-
-    #gets inputs at the beginning of each round. for this that would be the guess
-    def get_inputs(self):
-        self.dealer.guess_card()
-    
-    #updates score
-    def do_updates(self):
-        points = self.dealer.get_points()
-        self.score += points
-    
-    #outputs information for the game to the user
-    def do_outputs(self):
-        print(f"/nThe care is: {self.dealer.current_card}")
-        self.guess = input("Higher or lower? [h/l] ")
-        print(f"Next card was: {self.dealer.next_card}")
-        print(f"Your score is: {self.score}")
-        if self.dealer.can_continue():
-            choice = input("Roll again? [y/n] ")
-            self.keep_playing = (choice == "y")
-        else:
-            self.keep_playing = False
-=======
 """
     Bekah works on start, init, and is-game-over
     Liz works on updates, outputs, and inputs
@@ -32,8 +7,9 @@ class Director:
     attributes:
     score, dealer, card, and keep_plugging
 """
-    
+
 class Director:
+    
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to keep track of the score and control the 
     sequence of play.
@@ -76,5 +52,25 @@ class Director:
         if score == 0:
             print('Game over')
             self.keep_playing == False
+
+    #gets inputs at the beginning of each round. for this that would be the guess
+    def get_inputs(self):
+        self.dealer.guess_card()
     
->>>>>>> 18630a7f7ba85b8b3ae9e6b9e53cbf98ebc7ff65
+    #updates score
+    def do_updates(self):
+        points = self.dealer.get_points()
+        self.score += points
+    
+    #outputs information for the game to the user
+    def do_outputs(self):
+        print(f"/nThe care is: {self.dealer.current_card}")
+        self.guess = input("Higher or lower? [h/l] ")
+        print(f"Next card was: {self.dealer.next_card}")
+        print(f"Your score is: {self.score}")
+        if self.dealer.can_continue():
+            choice = input("Draw again? [y/n] ")
+            self.keep_playing = (choice == "y")
+        else:
+            self.keep_playing = False
+
