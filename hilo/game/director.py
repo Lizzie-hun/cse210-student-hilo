@@ -1,6 +1,15 @@
 from game.dealer import Dealer
 
+"""
+    Bekah works on start, init, and is-game-over
+    Liz works on updates, outputs, and inputs
+
+    attributes:
+    score, dealer, card, and keep_plugging
+"""
+
 class Director:
+    
     """A code template for a person who directs the game. The responsibility of 
     this class of objects is to keep track of the score and control the 
     sequence of play.
@@ -61,11 +70,8 @@ class Director:
         print(f"Next card was: {self.dealer.next_card}")
         print(f"Your score is: {self.score}")
         if self.dealer.can_continue():
-            choice = input("Roll again? [y/n] ")
+            choice = input("Draw again? [y/n] ")
             self.keep_playing = (choice == "y")
         else:
             self.keep_playing = False
-
-
-    
 
