@@ -1,1 +1,3 @@
-#file for dealer
+class Dealer:
+    pass
+
