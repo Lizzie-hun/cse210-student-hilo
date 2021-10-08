@@ -10,12 +10,12 @@ class Dealer():
     def __init__(self, playing):
         self.playing = playing
         self.score = 300
-        self.card
+        self.card = []
         self.flip = []
-
+        self.guess = []
 
     #def can_flip(self):
-        #return(self.flip.count(300)> 0)
+        #return(self.flip.count(300)>= 0)
             #if yes continue playing and flip a card, if no, end the game.
 
 
@@ -33,4 +33,4 @@ def get_points(self):
         for i in range(13):
             result = random.randint(1, 13)
             self.card.append(result)
-=======
+        flipped_card = {self.current_card}
