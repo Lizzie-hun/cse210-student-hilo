@@ -48,19 +48,21 @@ class Director:
     
     #updates score
     def do_updates(self):
-        points = self.dealer.get_points()
-        self.total_score += points
+        self.total_score = self.dealer.score + self.total_score
     
     #outputs information for the game to the user
     def do_outputs(self):
         self.dealer.flip_card()
-        print(f"/nThe card is: {self.dealer.current_card}")
+        print(f"\nThe card is: {self.dealer.current_card}")
         self.dealer.get_guess()
-        print(f"Next card was: {self.dealer.current_card}")
+        print(f"Next card was: {self.dealer.next_card}")
+        self.do_updates()
         print(f"Your score is: {self.total_score}")
         if self.keep_playing:
             choice = input("Draw again? [y/n] ")
             if choice == "n":
                 self.keep_playing = False
+                print(f"Your score is: {self.total_score}")
+                print("Thanks for playing!")
                 
 
