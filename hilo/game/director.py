@@ -20,7 +20,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self.keep_playing = True
-        self.score = 0
+        self.total_score = 0
         self.guess = ""
         self.dealer = Dealer()
 
@@ -34,7 +34,7 @@ class Director:
             self.do_outputs()
             self.is_game_over()
 
-    def is_game_over(self, score):
+    def is_game_over(self):
         """
         Determines if game is over or not. Criteria, if total points equal 0
 
@@ -42,24 +42,24 @@ class Director:
             self (Director): an instance of Director.
             score: Total score
         """
-        if score == 0:
+        if self.total_score == 0:
             print('Game over')
             self.keep_playing == False
     
     #updates score
     def do_updates(self):
         points = self.dealer.get_points()
-        self.score += points
+        self.total_score += points
     
     #outputs information for the game to the user
     def do_outputs(self):
         print(f"/nThe card is: {self.dealer.flipped_card}")
         self.dealer.get_guess()
         print(f"Next card was: {self.dealer.current_card}")
-        print(f"Your score is: {self.score}")
-        if self.keep_playing():
+        print(f"Your score is: {self.total_score}")
+        if self.keep_playing:
             choice = input("Draw again? [y/n] ")
-            self.keep_playing = (choice == "y")
-        else:
-            self.keep_playing = False
+            if choice == "n":
+                self.keep_playing = False
+                
 
