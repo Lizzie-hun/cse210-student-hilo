@@ -21,7 +21,7 @@ class Director:
         """
         self.keep_playing = True
         self.total_score = 300
-        self.score = self.get_points()
+        self.score = 0
         self.guess = ""
         self.dealer = Dealer()
 
@@ -49,9 +49,9 @@ class Director:
 
     def get_points(self):
         if self.dealer.flipped_card > self.dealer.next_card and self.dealer.guess == "l" or self.dealer.flipped_card < self.dealer.next_card and self.dealer.guess == "h":
-            return 100
+            self.score = 100
         else:
-            return -75
+            self.score = -75
     
     #updates score
     def do_updates(self):
