@@ -29,6 +29,7 @@ class Director:
         self.keep_playing = True
         self.score = 0
         self.dealer = Dealer()
+        self.guess = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -64,7 +65,7 @@ class Director:
     
     #outputs information for the game to the user
     def do_outputs(self):
-        print(f"/nThe care is: {self.dealer.current_card}")
+        print(f"/nThe card is: {self.dealer.current_card}")
         self.guess = input("Higher or lower? [h/l] ")
         print(f"Next card was: {self.dealer.next_card}")
         print(f"Your score is: {self.score}")
