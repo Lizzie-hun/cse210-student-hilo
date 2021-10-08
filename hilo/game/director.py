@@ -20,7 +20,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self.keep_playing = True
-        self.total_score = 0
+        self.total_score = 300
         self.guess = ""
         self.dealer = Dealer()
 
@@ -31,6 +31,7 @@ class Director:
             self (Director): an instance of Director.
         """
         while self.keep_playing:
+            self.dealer.flip_card()
             self.do_outputs()
             self.is_game_over()
 
