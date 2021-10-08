@@ -1,13 +1,5 @@
 from game.dealer import Dealer
 
-"""
-    Bekah works on start, init, and is-game-over
-    Liz works on updates, outputs, and inputs
-
-    attributes:
-    score, dealer, card, and keep_plugging
-"""
-
 class Director:
     
     """A code template for a person who directs the game. The responsibility of 
@@ -18,6 +10,7 @@ class Director:
         keep_playing (boolean): Whether or not the player wants to keep playing.
         score (number): The total number of points earned.
         dealer (Dealer): An instance of the class of objects known as Dealer.
+        guess (string): Record and hold their guess.
     """
 
     def __init__(self):
@@ -38,7 +31,6 @@ class Director:
             self (Director): an instance of Director.
         """
         while self.keep_playing:
-            self.get_inputs()
             self.do_updates()
             self.do_outputs()
 
