@@ -1,9 +1,8 @@
-#file for dealer<<<<<<< HEAD
-# TODO: Add entry point code here
+#file for dealer
 
 #Draw Cards and Get Points, class = Dealer, 
 import random
-
+from game import director
 
 class Dealer():
 
@@ -19,7 +18,13 @@ class Dealer():
             #if yes continue playing and flip a card, if no, end the game.
 
 
-def get_points(self):
+    def get_points(self):
+        while self.score > 0:
+            if self.current_card > self.next_card and self.director.guess == "l" or self.current_card < self.next_card and self.dealer.guess == "h":
+                self.score = self.score + 100
+            else:
+                self.score = self.score - 75
+        
 
         #This needs to add 100 points to the total score and subtract 75 for each wrong guess
         #Once the score reaches 0 the game is over
@@ -28,9 +33,6 @@ def get_points(self):
 
 
     def flip_card(self):
-
-        self.card.clear()
-        for i in range(13):
-            result = random.randint(1, 13)
-            self.card.append(result)
-=======
+        #self.current_card = self.next_card
+        #self.next_card = random.randint(1, 13)
+        
