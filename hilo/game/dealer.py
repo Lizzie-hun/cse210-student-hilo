@@ -9,7 +9,7 @@ class Dealer():
         self.score = 0
         self.flipped_card = 0
         self.current_card = 0
-        self.flip = []
+        self.next_card = 0
         self.guess = ""
     
     def get_guess(self):
@@ -29,3 +29,4 @@ class Dealer():
     def flip_card(self):
         self.current_card = random.randint(1, 13)
         self.flipped_card = self.current_card
+        self.next_card = random.randint(1, 13)

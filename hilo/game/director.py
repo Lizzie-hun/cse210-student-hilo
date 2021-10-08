@@ -56,7 +56,7 @@ class Director:
     def do_outputs(self):
         print(f"\nThe card is: {self.dealer.flipped_card}")
         self.dealer.get_guess()
-        print(f"Next card was: {self.dealer.current_card}")
+        print(f"Next card was: {self.dealer.next_card}")
         print(f"Your score is: {self.total_score}")
         if self.keep_playing:
             choice = input("Draw again? [y/n] ")
