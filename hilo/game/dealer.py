@@ -11,10 +11,6 @@ class Dealer():
         self.flip = []
         
 
-
-def guess(self):
-    guess = self.director.guess
-
 def get_points(self):
 
         #This needs to add 100 points to the total score and subtract 75 for each wrong guess
