@@ -31,7 +31,6 @@ class Director:
             self (Director): an instance of Director.
         """
         while self.keep_playing:
-            self.dealer.flip_card()
             self.do_outputs()
             self.is_game_over()
 
@@ -54,7 +53,8 @@ class Director:
     
     #outputs information for the game to the user
     def do_outputs(self):
-        print(f"/nThe card is: {self.dealer.flipped_card}")
+        self.dealer.flip_card()
+        print(f"/nThe card is: {self.dealer.current_card}")
         self.dealer.get_guess()
         print(f"Next card was: {self.dealer.current_card}")
         print(f"Your score is: {self.total_score}")

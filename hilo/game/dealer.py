@@ -27,5 +27,6 @@ class Dealer():
         #Once the score reaches 0 the game is over
 
     def flip_card(self):
+        self.current_card.clear()
         self.current_card = random.randint(1, 13)
         self.flipped_card = self.current_card
