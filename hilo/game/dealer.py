@@ -31,5 +31,3 @@ def flip_card(self):
             result = random.randint(1, 13)
             self.card.append(result)
         flipped_card = {self.current_card}
-
-    
