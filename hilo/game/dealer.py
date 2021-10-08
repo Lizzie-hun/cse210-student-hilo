@@ -14,13 +14,6 @@ class Dealer():
     
     def get_guess(self):
         self.guess = input("Higher or lower? [h/l] ")
-
-    def get_points(self):
-        while self.score > 0:
-            if self.flipped_card > self.current_card and self.guess == "l" or self.flipped_card < self.current_card and self.guess == "h":
-                self.score = self.score + 100
-            else:
-                self.score = self.score - 75
         
 
         #This needs to add 100 points to the total score and subtract 75 for each wrong guess

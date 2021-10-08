@@ -20,6 +20,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self.keep_playing = True
+        self.score = 0
         self.total_score = 300
         self.guess = ""
         self.dealer = Dealer()
@@ -33,6 +34,7 @@ class Director:
         while self.keep_playing:
             self.dealer.flip_card()
             self.do_outputs()
+            self.do_updates()
             self.is_game_over()
 
     def is_game_over(self):
@@ -46,10 +48,18 @@ class Director:
         if self.total_score == 0:
             print('Game over')
             self.keep_playing == False
+
+    def get_points(self):
+        while self.total_score > 0:
+            if self.dealer.flipped_card > self.dealer.next_card and self.dealer.guess == "l" or self.dealer.flipped_card < self.dealer.next_card and self.dealer.guess == "h":
+                self.score = self.score + 100
+            else:
+                self.score = self.score - 75
+            return self.score
     
     #updates score
     def do_updates(self):
-        points = self.dealer.get_points()
+        points = self.get_points()
         self.total_score += points
     
     #outputs information for the game to the user
