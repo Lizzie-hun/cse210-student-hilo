@@ -22,4 +22,4 @@ class Dealer():
     def flip_card(self):
         self.current_card = random.randint(1, 13)
         self.flipped_card = self.current_card
-        self.next_card = random.randint(1, 13)
+        return self.flipped_card

@@ -23,6 +23,8 @@ class Director:
         self.total_score = 300
         self.score = 0
         self.guess = ""
+        self.next_card = 0
+        self.flipped_card = 0
         self.dealer = Dealer()
 
     def start_game(self):
@@ -43,15 +45,24 @@ class Director:
             self (Director): an instance of Director.
             score: Total score
         """
-        if self.total_score == 0:
+        if self.total_score >= 0:
             print('Game over')
             self.keep_playing == False
 
     def get_points(self):
+<<<<<<< HEAD
         if self.dealer.flipped_card > self.dealer.next_card and self.dealer.guess == "l" or self.dealer.flipped_card < self.dealer.next_card and self.dealer.guess == "h":
             self.score = 100
         else:
             self.score = -75
+=======
+        while self.total_score > 0:
+            if self.dealer.flipped_card > self.next_card and self.dealer.guess == "l" or self.dealer.flipped_card < self.next_card and self.dealer.guess == "h":
+                self.score = 100
+            else:
+                self.score = -75
+            return self.score
+>>>>>>> 0b3681d2a4f1f77dab22cca313dc5bc026d147bf
     
     #updates score
     def do_updates(self):
@@ -60,6 +71,7 @@ class Director:
     
     #outputs information for the game to the user
     def do_outputs(self):
+<<<<<<< HEAD
         self.dealer.flip_card()
         print(f"\nThe card is: {self.dealer.current_card}")
         self.dealer.get_guess()
@@ -73,5 +85,16 @@ class Director:
                     self.keep_playing = False
                 print(f"Your score is: {self.total_score}")
                 print("Thanks for playing!")
+=======
+        print(f"\nThe card is: {self.dealer.flip_card()}")
+        self.dealer.get_guess()
+        self.next_card = self.dealer.flip_card()
+        print(f"Next card was: {self.next_card}")
+        print(f"Your score is: {self.total_score}")
+        if self.keep_playing:
+            choice = input("Draw again? [y/n] ")
+            if choice == "n":
+                self.keep_playing = False
+>>>>>>> 0b3681d2a4f1f77dab22cca313dc5bc026d147bf
                 
 
