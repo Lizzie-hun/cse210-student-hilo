@@ -35,8 +35,8 @@ class Director:
         """
         while self.keep_playing:
             self.dealer.flip_card()
-            self.do_outputs()
             self.do_updates()
+            self.do_outputs()
             self.is_game_over()
 
     def is_game_over(self):
