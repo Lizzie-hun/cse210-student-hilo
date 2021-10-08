@@ -21,8 +21,8 @@ class Director:
         """
         self.keep_playing = True
         self.score = 0
-        self.dealer = Dealer()
         self.guess = ""
+        self.dealer = Dealer()
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -31,7 +31,6 @@ class Director:
             self (Director): an instance of Director.
         """
         while self.keep_playing:
-            self.do_updates()
             self.do_outputs()
             self.is_game_over()
 
