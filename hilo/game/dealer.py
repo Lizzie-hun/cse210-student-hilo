@@ -2,7 +2,6 @@
 
 #Draw Cards and Get Points, class = Dealer, 
 import random
-from game.director import Director
 
 class Dealer():
 
@@ -12,11 +11,14 @@ class Dealer():
         self.flipped_card = 0
         self.current_card = 0
         self.flip = []
-        self.director = Director()
+        self.guess = ""
+    
+    def get_guess(self):
+        self.guess = input("Higher or lower? [h/l] ")
 
     def get_points(self):
         while self.score > 0:
-            if self.flipped_card > self.current_card and self.director.guess == "l" or self.flipped_card < self.current_card and self.dealer.guess == "h":
+            if self.flipped_card > self.current_card and self.guess == "l" or self.flipped_card < self.current_card and self.guess == "h":
                 self.score = self.score + 100
             else:
                 self.score = self.score - 75

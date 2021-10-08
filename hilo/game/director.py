@@ -55,7 +55,7 @@ class Director:
     #outputs information for the game to the user
     def do_outputs(self):
         print(f"/nThe card is: {self.dealer.flipped_card}")
-        self.guess = input("Higher or lower? [h/l] ")
+        self.dealer.get_guess()
         print(f"Next card was: {self.dealer.current_card}")
         print(f"Your score is: {self.score}")
         if self.keep_playing():
