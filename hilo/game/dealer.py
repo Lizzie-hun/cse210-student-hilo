@@ -11,7 +11,7 @@ class Dealer():
         self.score = 300
         self.card
         self.flip = []
-         self.guess = []
+        self.guess = []
         
 
     def get_points(self):
