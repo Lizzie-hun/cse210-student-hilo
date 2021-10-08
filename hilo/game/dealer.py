@@ -2,21 +2,21 @@
 
 #Draw Cards and Get Points, class = Dealer, 
 import random
-from game import director
+from game.director import Director
 
 class Dealer():
 
     def __init__(self, playing):
         self.playing = playing
         self.score = 300
-        self.card
+        self.flipped_card = 0
+        self.current_card = 0
         self.flip = []
-        self.guess = []
-        
+        self.director = Director()
 
     def get_points(self):
         while self.score > 0:
-            if self.current_card > self.next_card and self.director.guess == "l" or self.current_card < self.next_card and self.dealer.guess == "h":
+            if self.flipped_card > self.current_card and self.director.guess == "l" or self.flipped_card < self.current_card and self.dealer.guess == "h":
                 self.score = self.score + 100
             else:
                 self.score = self.score - 75
@@ -24,9 +24,6 @@ class Dealer():
 
         #This needs to add 100 points to the total score and subtract 75 for each wrong guess
         #Once the score reaches 0 the game is over
-
-    pass
-
 
 def flip_card(self):
         self.card.clear()
