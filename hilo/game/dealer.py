@@ -5,8 +5,7 @@ import random
 
 class Dealer():
 
-    def __init__(self, playing):
-        self.playing = playing
+    def __init__(self):
         self.score = 300
         self.flipped_card = 0
         self.current_card = 0
