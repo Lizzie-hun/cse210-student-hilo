@@ -34,12 +34,5 @@ def flip_card(self):
         result = random.randint(1, 13)
         self.card.append(result)
 
-<<<<<<< HEAD
-        self.card.clear()
-        for i in range(13):
-            result = random.randint(1, 13)
-            self.card.append(result)
-        flipped_card = {self.current_card}
-=======
     
 >>>>>>> ed26b1f85cab66d6f7f87daedcc0bd33f2c402f0
