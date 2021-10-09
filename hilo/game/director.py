@@ -73,12 +73,13 @@ class Director:
         if self.previous_card == 0:
             print("Welcome! Are you ready to play Hilo?")
             print(f"\nThe card is: {self.dealer.current_card}")
+            self.transfer_card()
         elif self.previous_card != 0:
             print(f"\nThe card is: {self.previous_card}")
 
     #changes the card
     def transfer_card(self):
-        self.previous_card = self.dealer.current_card
+        self.previous_card = int(self.dealer.current_card)
 
     #asks whether the user wants to draw again
     def draw_again(self):
@@ -91,9 +92,9 @@ class Director:
     #outputs the next card and score
     def do_outputs(self):
         print(f"Next card was: {self.dealer.current_card}")
-        self.transfer_card()
         self.get_points()
         self.do_updates()
+        self.transfer_card()
         print(f"Your score is: {self.total_score}")
                 
 
