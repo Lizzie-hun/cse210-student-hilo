@@ -34,9 +34,11 @@ class Director:
         """
         while self.keep_playing:
             self.output_first_card()
+            self.dealer.get_guess()
+            self.dealer.flip_card()
             self.do_outputs()
             self.is_game_over()
-            #self.do_updates()
+            self.draw_again()
             
 
     def is_game_over(self):
@@ -48,7 +50,8 @@ class Director:
             score: Total score
         """
         if self.total_score <= 0:
-            print('Game over')
+            print("Better luck next time!")
+            print("Game over")
             self.keep_playing = False
 
     def get_points(self):
@@ -67,21 +70,30 @@ class Director:
     #outputs first card for the game to the user
     def output_first_card(self):
         self.dealer.flip_card()
-        print(f"\nThe card is: {self.dealer.current_card}")
-    
-    #outputs the rest of the game
-    def do_outputs(self):
-        self.dealer.get_guess()
+        if self.previous_card == 0:
+            print("Welcome! Are you ready to play Hilo?")
+            print(f"\nThe card is: {self.dealer.current_card}")
+        elif self.previous_card != 0:
+            print(f"\nThe card is: {self.previous_card}")
+
+    #changes the card
+    def transfer_card(self):
         self.previous_card = self.dealer.current_card
-        self.dealer.flip_card()
-        print(f"Next card was: {int(self.dealer.current_card)}")
-        self.get_points()
-        self.do_updates()
-        print(f"Your score is: {self.total_score}")
+
+    #asks whether the user wants to draw again
+    def draw_again(self):
         if self.keep_playing:
-            choice = input("Draw again? [y/n] ")
+            choice = input("Do you want to draw again? [y/n] ")
             if choice == "n":
                 self.keep_playing = False
                 print(f"Your score is: {self.total_score}")
+
+    #outputs the next card and score
+    def do_outputs(self):
+        print(f"Next card was: {self.dealer.current_card}")
+        self.transfer_card()
+        self.get_points()
+        self.do_updates()
+        print(f"Your score is: {self.total_score}")
                 
 
